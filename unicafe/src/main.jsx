@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client'
 
 const StaisticsLine = (props) => {
   return (
-    <div>
-      <p>{props.text}</p>
-      <p>{props.value}</p>
-    </div>
+    <tr>
+      <td>{props.text}</td>
+      <td>{props.value}</td>
+    </tr>
   )
 }
 
@@ -19,12 +19,16 @@ const Staistics = (props) => {
   }
   return (
     <div>
-      <StaisticsLine text='good' value={props.good} />
-      <StaisticsLine text='neutral' value={props.neutral} />
-      <StaisticsLine text='bad' value={props.bad} />
-      <StaisticsLine text='total' value={total} />
-      <StaisticsLine text='average' value={average} />
-      <StaisticsLine text='positive' value={positive} />
+      <table>
+        <tbody>
+          <StaisticsLine text='good' value={props.good} />
+          <StaisticsLine text='neutral' value={props.neutral} />
+          <StaisticsLine text='bad' value={props.bad} />
+          <StaisticsLine text='total' value={total} />
+          <StaisticsLine text='average' value={average} />
+          <StaisticsLine text='positive' value={positive} />
+        </tbody>
+      </table>
     </div>
   )
 }
