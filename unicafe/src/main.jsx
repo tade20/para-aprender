@@ -5,8 +5,14 @@ const Statics = (props) => {
   const total = props.good + props.bad + props.neutral
   const average = (props.good - props.bad) / total
   const positive = props.good * (100 / total)
+  if (total === 0) {
+    return ('No feedback given')
+  }
   return (
     <div>
+      <p>good {props.good}</p>
+      <p>neutral {props.neutral}</p>
+      <p>bad {props.bad}</p>
       <p>total {total}</p>
       <p>average {average}</p>
       <p>positive {positive}</p>
@@ -19,7 +25,6 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  const total = good + bad + neutral
   return (
     <div>
       <h1>give feedback</h1>
@@ -36,9 +41,6 @@ const App = () => {
         bad
       </button>
       <h2>Statics</h2>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
       <Statics good={good} bad={bad} neutral={neutral} />
     </div>
   )
